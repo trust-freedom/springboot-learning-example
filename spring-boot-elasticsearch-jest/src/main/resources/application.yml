@@ -2,3 +2,12 @@ spring:
   elasticsearch:
     jest:
       uris: ["http://172.18.101.128:9200", "http://172.18.101.129:9200", "http://172.18.101.131:9200"]
+      connection-timeout: 10000  #连接超时，单位毫秒
+      read-timeout: 60000         #读超时，单位毫秒
+      multi-threaded: true        #是否启用连接池
+      maxTotalConnection: 20      #最大连接数，默认值：30
+      defaultMaxTotalConnectionPerRoute: 10  #默认每个路由的最大连接数，默认值：10
+      maxConnectionIdleTimeInSecond: 600      #连接空闲多少秒会被认定为空闲连接并关闭，默认值：0，不开启空闲连接检测
+#logging:
+#  level:
+#    root: debug

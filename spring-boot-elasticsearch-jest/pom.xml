@@ -31,6 +31,12 @@
 			<artifactId>jest</artifactId>
 			<version>5.3.4</version>
 		</dependency>
+		<!-- 引入Elasticsearch依赖，可以使用QueryBuilder、Settings等 -->
+		<dependency>
+			<groupId>org.elasticsearch</groupId>
+			<artifactId>elasticsearch</artifactId>
+			<version>5.5.1</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
