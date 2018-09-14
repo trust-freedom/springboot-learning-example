@@ -28,11 +28,25 @@ public class JestHttpClientConfigBuilderCustomizer implements HttpClientConfigBu
     @Value("${spring.elasticsearch.jest.maxConnectionIdleTimeInSecond:0}")
     private long maxConnectionIdleTimeInSecond;
 
+    //是否启用自动发现ES Node，默认值：false
+    @Value("${spring.elasticsearch.jest.discoveryEnabled:false}")
+    private boolean discoveryEnabled;
+
+    //自动发现的频率，单位秒，默认60s
+    @Value("${spring.elasticsearch.jest.discoveryFrequencyInSecond:60}")
+    private long discoveryFrequencyInSecond;
+
     @Override
     public void customize(HttpClientConfig.Builder builder) {
         builder.maxTotalConnection(maxTotalConnection);  //最大连接数
         builder.defaultMaxTotalConnectionPerRoute(defaultMaxTotalConnectionPerRoute);   //每个路由的最大连接数
         builder.maxConnectionIdleTime(maxConnectionIdleTimeInSecond, TimeUnit.SECONDS); //连接空闲时间
+
+        //自动发现ES Node
+        builder.discoveryEnabled(discoveryEnabled);
+        if(discoveryEnabled){
+            builder.discoveryFrequency(discoveryFrequencyInSecond, TimeUnit.SECONDS);
+        }
     }
 
 }

@@ -8,6 +8,10 @@ spring:
       maxTotalConnection: 20      #最大连接数，默认值：30
       defaultMaxTotalConnectionPerRoute: 10  #默认每个路由的最大连接数，默认值：10
       maxConnectionIdleTimeInSecond: 600      #连接空闲多少秒会被认定为空闲连接并关闭，默认值：0，不开启空闲连接检测
-#logging:
-#  level:
-#    root: debug
+      discoveryEnabled: true           #是否启用自动发现ES Node，默认值：false
+      discoveryFrequencyInSecond: 10  #自动发现的频率，单位秒，默认60s
+
+#查看后台检查空闲连接线程的运行 和 自动发现ES Node线程运行
+logging:
+  level:
+    root: debug
