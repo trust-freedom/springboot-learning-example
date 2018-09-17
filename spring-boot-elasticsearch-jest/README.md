@@ -39,7 +39,7 @@ Jest是一个Elasticsearch的Java Rest API库
 
 由于我的ES版本是5.5.1，故选择Jest 5.3.4
 
-
+<br>
 
 ## SpringBoot Jest配置
 
@@ -281,7 +281,7 @@ public class JestAutoConfiguration {
 
 HttpClientConfig是用来创建`JestClientFactory`时用的，而`JestClientFactory`是创建`JestClient`的工厂，`JestClient`是调用Jest API的入口，拥有CloseableHttpClient 和 CloseableHttpAsyncClient的成员变量，来实现http同步或异步调用。故具体创建`JestClient`的逻辑还是要参考 [JestClientFactory的源码](https://github.com/searchbox-io/Jest/blob/v5.3.4/jest/src/main/java/io/searchbox/client/JestClientFactory.java)
 
-
+<br>
 
 ## JestClient使用
 
