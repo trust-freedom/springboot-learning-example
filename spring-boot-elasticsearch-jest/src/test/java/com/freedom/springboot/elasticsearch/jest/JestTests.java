@@ -58,7 +58,9 @@ public class JestTests {
 
 		try {
 			//执行
-			jestClient.execute(index);
+			JestResult result = jestClient.execute(index);
+
+			System.out.println("原始返回json：" + result.getJsonString());
 		}
 		catch (IOException e) {
 			e.printStackTrace();
